@@ -1,0 +1,1 @@
+/proto/input/example_v2.proto

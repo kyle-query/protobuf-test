@@ -1,0 +1,28 @@
+syntax = "proto2";
+
+message Example {
+  optional string a_old = 1 [deprecated = true];    // Deprecated
+  optional int64 b      = 2;
+  optional string c_new = 6;                        // New field
+
+  oneof union {
+    double d = 3;
+    double e = 4;
+    double f_new = 7;                               // New field in union
+  }
+
+  optional Option option = 5;
+
+  enum Option {                                     // Enum was moved
+    A = 1;
+    B = 2;
+    C = 3;
+    D_NEW = 4;                                      // New enum member
+  }
+}
+
+message Examples {
+  optional int64 count_old = 1 [deprecated = true]; // Deprecated
+  optional int32 count_new = 3 [default = 9999999]; // New field with default
+  repeated Example items   = 2;                     // Size of array elements changes
+}

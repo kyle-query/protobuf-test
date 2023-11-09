@@ -1,0 +1,24 @@
+syntax = "proto2";
+
+enum Option {
+  A = 1;
+  B = 2;
+  C = 3;
+}
+
+message Example {
+  optional string a = 1 [deprecated = true];
+  optional int64 b  = 2;
+
+  oneof union {
+    double d = 3;
+    double e = 4;
+  }
+
+  optional Option option = 5;
+}
+
+message Examples {
+  optional int64 count    = 1 [deprecated = true];
+  repeated Example items  = 2;
+}
