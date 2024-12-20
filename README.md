@@ -83,7 +83,10 @@ client's protobuf definitions.
 
 We can check whether a field is present on the wire or not using the `HasField` method. With this we
 can tell if we are reading a default value because the field wasn't sent, or because the sender sent
-a default value. We cannot track field presence on repeated elements and maps (dictionaries).
+a value that happened to be the default.
+
+We cannot track field presence on repeated elements and maps (dictionaries). This means `HasField`
+can't be used to distinguish an empty list from a list field that wasn't set.
 
 You can read more about field presence [here](https://protobuf.dev/programming-guides/field_presence/)
 
